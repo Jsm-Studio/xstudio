@@ -2,11 +2,7 @@
 /* Color */
 
 :root {
-  --primary: #fff;
   --accent: rgb(36, 76, 255);
-  --accent-2: #00a8e8;
-  --secondary: #e71d36;
-  --secondary-2: #011267;
 }
 
 /* Light-Dark */
@@ -152,28 +148,22 @@ mark {
 
 /********************/
 
-#app {
+#app, #xbody, [xbuild] {
   width: var(--fill);
   height: var(--fill);
-  overflow: hidden;
   position: relative;
 }
 
+#app {
+  overflow: hidden;
+}
+
 #xbody, [xbody] {
-  width: var(--fill);
-  height: var(--fill);
   overflow: auto;
-  position: relative;
 }
 
 [xsection] {
   overflow: hidden;
-}
-
-[xbuild] {
-  width: var(--fill);
-  height: var(--fill);
-  position: relative;
 }
 
 .wrapper[xbuild] {
