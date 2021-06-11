@@ -172,6 +172,12 @@ mark {
   justify-content: center;
 }
 
+[xtext]{
+  display: inline-block;
+  width: auto;
+  height: auto;
+}
+
 [xlist], [xlist="column"] {
   display: flex;
   flex-direction: column;
