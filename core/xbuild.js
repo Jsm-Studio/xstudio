@@ -28,7 +28,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
 
 /**
  * @param {config_} [config]
- * @param {HTMLElement} [child]
+ * @param {HTMLElement | HTMLElement[]} [child]
  */
 export function XBlank(config, child) {
   if (!is.obj(config)) config = {}
@@ -39,7 +39,7 @@ export function XBlank(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement} [child]
+ * @param {HTMLElement | HTMLElement[]} [child]
  */
 export function XSection(config, child) {
   const x = XBlank(setParam(config, { tagName: "section" }), child)
@@ -47,7 +47,7 @@ export function XSection(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement} [child]
+ * @param {HTMLElement | HTMLElement[]} [child]
  */
 export function XContent(config, child) {
   const x = XBlank(config, child)
@@ -55,7 +55,7 @@ export function XContent(config, child) {
 }
 /**
  * @param {config_List} [config]
- * @param {HTMLElement} [child]
+ * @param {HTMLElement | HTMLElement[]} [child]
  */
 export function XList(config, child) {
   const x = XBlank(config, child)
@@ -67,7 +67,7 @@ export function XList(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement} [child]
+ * @param {HTMLElement | HTMLElement[]} [child]
  */
 export function XHero(config, child) {
   const x = XBlank(config, child)
@@ -75,13 +75,17 @@ export function XHero(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement} [child]
+ * @param {HTMLElement | HTMLElement[]} [child]
  */
 export function XFooter(config, child) {
   const x = XBlank(setParam(config, { tagName: "footer" }), child)
   return setAttr(x, attr("xfooter"))
 }
 
+/**
+ * @param {config_} [config]
+ * @param {string} [child]
+ */
 export function XText(config, text) {
   const x = XBlank(config)
   if (is.str(text)) x.innerText = text
