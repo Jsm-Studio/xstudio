@@ -88,6 +88,7 @@ export function XFooter(config, child) {
  */
 export function XText(config, text) {
   const x = XBlank(config)
+  setAttr(x,attr("xtext"))
   if (is.str(text)) x.innerText = text
   return x
 }
