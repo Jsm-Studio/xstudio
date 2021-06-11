@@ -133,6 +133,19 @@ h6 {
   font-size: var(--h6);
 }
 
+strong {
+  font-weight: 700;
+}
+
+abbr {
+  text-decoration: underline var(--accent) 2px;
+}
+
+mark {
+  background-color: var(--accent);
+  color: var(--light);
+}
+
 /********************/
 
 /**** BEGIN CODE ****/
