@@ -98,8 +98,8 @@ export function XFooter(config, child) {
 export function XText(config, text) {
   const x = XBlank(config)
   if (is.obj(config)) {
-    if (x.tagName === "a" && is.str(config.href)) x.href = config.href
+    if (x.tagName == "A" && is.str(config.href)) x.href = config.href
   }
   if (is.str(text)) x.innerText = text
-  return  setAttr(x, attr("xtext"))
+  return setAttr(x, attr("xtext"))
 }
