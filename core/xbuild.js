@@ -106,6 +106,6 @@ export function XText(config, text) {
     if (is.str(config.href)) x.href = config.href
     if (is.str(config.rel)) x.rel = config.rel
   }
-  if (is.str(text)) x.innerText = text
+  if (is.str(text)) x.innerHTML = text
   return setAttr(x, attr("xtext"))
 }
