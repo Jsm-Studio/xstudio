@@ -32,7 +32,8 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
  * notranslate: ?boolean,
- * href: ?string
+ * href: ?string,
+ * rel: ?string
  * }} config_Text
  */
 //#endregion
@@ -102,7 +103,8 @@ export function XFooter(config, child) {
 export function XText(config, text) {
   const x = XBlank(config)
   if (is.obj(config)) {
-    if (x.tagName == "A" && is.str(config.href)) x.href = config.href
+    if (is.str(config.href)) x.href = config.href
+    if (is.str(config.rel)) x.rel = config.rel
   }
   if (is.str(text)) x.innerText = text
   return setAttr(x, attr("xtext"))
