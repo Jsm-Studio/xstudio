@@ -12,6 +12,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  * css : ?string,
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
+ * notranslate: ?boolean
  * }} config_
  */
 /**
@@ -20,6 +21,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  * css : ?string,
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
+ * notranslate: ?boolean,
  * listType: ?"column" | "row"
  * }} config_List
  */
@@ -29,6 +31,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  * css : ?string,
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
+ * notranslate: ?boolean,
  * href: ?string
  * }} config_Text
  */
@@ -44,6 +47,7 @@ export function XBlank(config, child) {
   if (is.str(config.id)) x.id = config.id
   if (is.array(config.css)) add(x, ...config.css)
   if (is.obj(config.style)) styler(x, config.style)
+  if (config.notranslate) { x.translate = false; add(x, "notranslate") }
   return setAttr(x, attr("xbuild"))
 }
 /**
@@ -98,9 +102,6 @@ export function XFooter(config, child) {
 export function XText(config, text) {
   const x = XBlank(config)
   if (is.obj(config)) {
-    if (config.notranslate) {
-      x.translate = false; add(x, "notranslate")
-    }
     if (x.tagName == "A" && is.str(config.href)) x.href = config.href
   }
   if (is.str(text)) x.innerText = text
