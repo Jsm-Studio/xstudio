@@ -23,7 +23,15 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  * listType: ?"column" | "row"
  * }} config_List
  */
-
+/**
+ * @typedef {{
+ * id: ?string,
+ * css : ?string,
+ * tagName: ?string,
+ * style: ?CSSStyleDeclaration,
+ * href: ?string
+ * }} config_Text
+ */
 //#endregion
 
 /**
@@ -84,12 +92,14 @@ export function XFooter(config, child) {
 }
 
 /**
- * @param {config_} [config]
+ * @param {config_Text} [config]
  * @param {string} [child]
  */
 export function XText(config, text) {
   const x = XBlank(config)
-  setAttr(x, attr("xtext"))
+  if (is.obj(config)) {
+    if (x.tagName === "a" && is.str(config.href)) x.href = config.href
+  }
   if (is.str(text)) x.innerText = text
-  return x
+  return  setAttr(x, attr("xtext"))
 }
