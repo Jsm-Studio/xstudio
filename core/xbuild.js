@@ -1,5 +1,5 @@
 import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
-import { Div, attr, setAttr, appendChild ,setParam} from "./xtool.js"
+import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
 
 const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
   { search, add, remove, styler } = DOM,
@@ -33,6 +33,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
 export function XBlank(config, child) {
   if (!is.obj(config)) config = {}
   const x = appendChild(Div(config.tagName ? config.tagName : "div"), child)
+  if (is.str(config.id)) x.id = config.id
   if (is.array(config.css)) add(x, ...config.css)
   if (is.obj(config.style)) styler(x, config.style)
   return setAttr(x, attr("xbuild"))
@@ -88,7 +89,7 @@ export function XFooter(config, child) {
  */
 export function XText(config, text) {
   const x = XBlank(config)
-  setAttr(x,attr("xtext"))
+  setAttr(x, attr("xtext"))
   if (is.str(text)) x.innerText = text
   return x
 }
