@@ -1,6 +1,6 @@
 let d = document;
-d.head.appendChild(d.createElement("link")).href = "https://fonts.googleapis.com/css2?family=Barlow&family=Comfortaa&family=Montserrat:wght@100;200;300;400;500;600;700;800;900&family=Roboto:wght@400;500;700&display=swap"
-d.head.appendChild(d.createElement("style")).innerHTML = `:root{--accent:rgb(36,76,255)}:root{--light:#FDFFFC;--dark:#010303}:root{--h1:3.5em;--h2:2.6em;--h3:2.2em;--h4:1.8em;--h5:1.4em;--h6:1.2em}
+d.head.appendChild(d.createElement("style")).innerHTML = `@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;600;700;800;900&display=swap');:root{--accent:rgb(36,76,255)}
+:root{--light:#FDFFFC;--dark:#010303}:root{--h1:3.5em;--h2:2.6em;--h3:2.2em;--h4:1.8em;--h5:1.4em;--h6:1.2em}
 :root{--size0:8px;--size1:16px;--size2:24px;--size3:32px;--size4:48px;--size5:64px;--size6:128px;--scrollbar-size:10px;--fill:-webkit-fill-available}
 :root{--gray:#282828;--gray-100:#ddd;--gray-200:#888;--gray-300:#818181;--gray-400:#6b6b6b;--gray-500:#424242;--gray-600:#323232;--gray-700:#282828;--gray-800:#1b1b1b;--gray-900:#101010}
 *{margin:0;padding:0;outline:none;border:none;scroll-behavior:smooth;font-size:16px}*:focus{background:var(--accent)}*::selection{background:var(--gray-600);color:var(--light)}
