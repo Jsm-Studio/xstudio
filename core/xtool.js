@@ -18,8 +18,7 @@ export const attr = (x, y) => {
  * @param {HTMLElement} y
  */
 export const appendChild = (x, y) => {
-  if (is.str(y)) y = [search(y)]
-  each(y, z => { if (y instanceof HTMLElement) x.appendChild(z) })
+  each(y, z => { if (z instanceof HTMLElement) x.appendChild(z) })
   return x
 }
 export const setParam = (x, y) => { if (!is.obj(x)) return y; return Extend(x, y) }
