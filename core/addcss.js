@@ -9,6 +9,6 @@ d.head.appendChild(d.createElement("style")).innerHTML = `@import url('https://f
 p,a,h1,h2,h3,h4,h5,h6,i,span,div,b,strong,abbr,code,texе,font,ya-tr-span{color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit}
 h1,h2,h3,h4,h5,h6{font-weight:500;display:inline-block}h1{font-size:var(--h1)}h2{font-size:var(--h2)}h3{font-size:var(--h3)}h4{font-size:var(--h4)}h5{font-size:var(--h5)}
 h6{font-size:var(--h6)}strong{font-weight:700}abbr{text-decoration:underline var(--accent)2px;}mark{background-color:var(--accent);color:var(--light)}
-#app,#xbody,[xbuild]{width:var(--fill);height:var(--fill);position:relative}#app{overflow:hidden}#xbody,[xbody]{overflow:auto;transform-origin:bottom;transition:rotateX 0.5s ease}
+#app,#xbody,[xbuild]{width:var(--fill);height:var(--fill);position:relative}#app{overflow:hidden}#xbody,[xbody]{overflow:auto;transform-origin:bottom;transition:transform 0.3s ease}
 [xsection]{overflow:hidden}#xbody[hide],[xbody][hide]{transform:rotateX(90deg)}.wrapper[xbuild]{display:flex;align-items:center;justify-content:center}
 [xtext]{display:inline-block;width:fit-content;height:auto}[xlist],[xlist="column"]{display:flex;flex-direction:column}[xlist="row"]{flex-direction:row}`
