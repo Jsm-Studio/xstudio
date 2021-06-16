@@ -59,6 +59,7 @@ export default class XStudio {
     else setAttr(xs.#self, attr("hide")); return xs
   }
   view() {
+    console.log("view")
     remove(xs.#self, ["rotateX90", "hide", "none"])
     xs.#self.style.display = ""; return xs
   }
