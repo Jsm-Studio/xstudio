@@ -89,7 +89,7 @@ export function XHero(config, ...child) {
  * @param {HTMLElement[]} [child]
  */
 export function XFooter(config, ...child) {
-  const x = XBlank(setParam(config, { tagName: "footer" }), child)
+  const x = XBlank(setParam(config, { tagName: "footer" }), ...child)
   return setAttr(x, attr("xfooter"))
 }
 
