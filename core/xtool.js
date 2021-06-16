@@ -27,6 +27,10 @@ export const toConfigurate = args => {
   else if (!is.obj(args[0])) return [{}, ...args]
   return args
 }
-export const setParam = (x, y) => { if (!is.obj(x)) return y; return Extend(x, y) }
+export const setParam = (x, y) => {
+  if (!is.obj(x)) return y;
+  if (x instanceof HTMLElement) return y
+  return Extend(x, y)
+}
 let Div = search.newElement
 export { Div }
