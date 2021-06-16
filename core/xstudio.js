@@ -60,7 +60,7 @@ export default class XStudio {
   }
   view() {
     console.log("view")
-    remove(xs.#self, ["rotateX90", "hide", "none"])
+    document.createElement("div").attributes.removeNamedItem("hide")
     xs.#self.style.display = ""; return xs
   }
   ready() {
