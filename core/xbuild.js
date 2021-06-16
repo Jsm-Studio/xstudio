@@ -37,10 +37,10 @@ import { Div, attr, setAttr, appendChild, setParam, toConfigurate } from "./xtoo
 
 /**
  * @param {config_} [config]
- * @param {HTMLElement[]} [child]
+ * @param {HTMLElement[]} [childs]
  */
-export function XBlank(config, ...child) {
-  let [config,...child] = to([config,...child])
+export function XBlank(config, ...childs) {
+  let [cfg,...childs] = to([config,...childs])
   if (!is.obj(config)) config = {}
   const x = appendChild(search.newElement(config.tagName ? config.tagName : "div"), child)
   if (is.str(config.id)) x.id = config.id
@@ -52,26 +52,26 @@ export function XBlank(config, ...child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement[]} [child]
+ * @param {HTMLElement[]} [childs]
  */
-export function XSection(config, ...child) {
-  const x = XBlank(setParam(config, { tagName: "section" }), ...child)
+export function XSection(config, ...childs) {
+  const x = XBlank(setParam(config, { tagName: "section" }), ...childs)
   return setAttr(x, attr("xsection"))
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement[]} [child]
+ * @param {HTMLElement[]} [childs]
  */
-export function XContent(config, ...child) {
-  const x = XBlank(config, ...child)
+export function XContent(config, ...childs) {
+  const x = XBlank(config, ...childs)
   return setAttr(x, attr("xcontent"))
 }
 /**
  * @param {config_List} [config]
- * @param {HTMLElement[]} [child]
+ * @param {HTMLElement[]} [childs]
  */
-export function XList(config, ...child) {
-  const x = XBlank(config, ...child)
+export function XList(config, ...childs) {
+  const x = XBlank(config, ...childs)
   let z = attr("xlist")
   if (is.obj(config)) {
     if (is.str(config.listType)) z.value = config.listType
@@ -80,18 +80,18 @@ export function XList(config, ...child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement[]} [child]
+ * @param {HTMLElement[]} [childs]
  */
-export function XHero(config, ...child) {
-  const x = XBlank(config, ...child)
+export function XHero(config, ...childs) {
+  const x = XBlank(config, ...childs)
   return setAttr(x, attr("xhero"))
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement[]} [child]
+ * @param {HTMLElement[]} [childs]
  */
-export function XFooter(config, ...child) {
-  const x = XBlank(setParam(config, { tagName: "footer" }), ...child)
+export function XFooter(config, ...childs) {
+  const x = XBlank(setParam(config, { tagName: "footer" }), ...childs)
   return setAttr(x, attr("xfooter"))
 }
 
