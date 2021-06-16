@@ -43,7 +43,7 @@ export function XBlank(config, child) {
   if (!is.obj(config)) config = {}
   const x = appendChild(search.newElement(config.tagName ? config.tagName : "div"), child)
   if (is.str(config.id)) x.id = config.id
-  if (is.array(config.css)) add(x, ...config.css)
+  if (is.array(config.css)) add(x, [...config.css])
   if (is.obj(config.style)) styler(x, config.style)
   if (config.notranslate) { x.translate = false; add(x, "notranslate") }
   return setAttr(x, attr("xbuild"))

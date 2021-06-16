@@ -54,11 +54,11 @@ export default class XStudio {
   }
   /** @param {boolean} [force] */
   hide(force = false) {
-    if (force) add(xs.#self, "hide", xs.#self.style.display = "none")
+    if (force) add(xs.#self, ["hide", xs.#self.style.display = "none"])
     else add(xs.#self, "rotateX90"); return xs
   }
   view() {
-    remove(xs.#self, "rotateX90", "hide", "none")
+    remove(xs.#self, ["rotateX90", "hide", "none"])
     xs.#self.style.display = ""; return xs
   }
   ready() {
