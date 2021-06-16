@@ -40,7 +40,7 @@ import { Div, attr, setAttr, appendChild, setParam, toConfigurate } from "./xtoo
  * @param {HTMLElement[]} [childs]
  */
 export function XBlank(config, ...childs) {
-  let [cfg,...childs] = to([config,...childs])
+  let [cfg,...child] = to([config,...childs])
   const x = appendChild(search.newElement(cfg.tagName ? cfg.tagName : "div"), child)
   if (is.str(cfg.id)) x.id = cfg.id
   if (is.array(cfg.css)) add(x, [...cfg.css])
