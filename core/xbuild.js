@@ -53,23 +53,23 @@ export function XBlank(config, ...child) {
  * @param {HTMLElement[]} [child]
  */
 export function XSection(config, ...child) {
-  const x = XBlank(setParam(config, { tagName: "section" }), child)
+  const x = XBlank(setParam(config, { tagName: "section" }), ...child)
   return setAttr(x, attr("xsection"))
 }
 /**
  * @param {config_} [config]
  * @param {HTMLElement[]} [child]
  */
-export function XContent(config, child) {
-  const x = XBlank(config, child)
+export function XContent(config, ...child) {
+  const x = XBlank(config, ...child)
   return setAttr(x, attr("xcontent"))
 }
 /**
  * @param {config_List} [config]
  * @param {HTMLElement[]} [child]
  */
-export function XList(config, child) {
-  const x = XBlank(config, child)
+export function XList(config, ...child) {
+  const x = XBlank(config, ...child)
   let z = attr("xlist")
   if (is.obj(config)) {
     if (is.str(config.listType)) z.value = config.listType
@@ -80,15 +80,15 @@ export function XList(config, child) {
  * @param {config_} [config]
  * @param {HTMLElement[]} [child]
  */
-export function XHero(config, child) {
-  const x = XBlank(config, child)
+export function XHero(config, ...child) {
+  const x = XBlank(config, ...child)
   return setAttr(x, attr("xhero"))
 }
 /**
  * @param {config_} [config]
  * @param {HTMLElement[]} [child]
  */
-export function XFooter(config, child) {
+export function XFooter(config, ...child) {
   const x = XBlank(setParam(config, { tagName: "footer" }), child)
   return setAttr(x, attr("xfooter"))
 }
