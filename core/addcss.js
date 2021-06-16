@@ -4,7 +4,7 @@ d.head.appendChild(d.createElement("style")).innerHTML = `@import url('https://f
 :root{--size0:8px;--size1:16px;--size2:24px;--size3:32px;--size4:48px;--size5:64px;--size6:128px;--scrollbar-size:10px;--fill:-webkit-fill-available}
 :root{--gray:#282828;--gray-100:#ddd;--gray-200:#888;--gray-300:#818181;--gray-400:#6b6b6b;--gray-500:#424242;--gray-600:#323232;--gray-700:#282828;--gray-800:#1b1b1b;--gray-900:#101010}
 *{margin:0;padding:0;outline:none;border:none;scroll-behavior:smooth;font-size:16px}*:focus{background:var(--accent)}*::selection{background:var(--gray-600);color:var(--light)}
-::-webkit-scrollbar{width:var(--scrollbar-size,10px)}::-webkit-scrollbar-track{background:var(--gray-100)}::-webkit-scrollbar-thumb{background:var(--gray-200)}
+::-webkit-scrollbar{width:var(--scrollbar-size,10px);height:var(--scrollbar-size,10px)}::-webkit-scrollbar-track{background:var(--gray-100)}::-webkit-scrollbar-thumb{background:var(--gray-200)}
 ::-webkit-scrollbar-thumb:hover{background:var(--gray-400)}body{overflow:hidden;height:100vh;width:100vw;font-family:'Roboto',sans-serif;font-size:16px}
 p,a,h1,h2,h3,h4,h5,h6,i,span,div,b,strong,abbr,code,texе,font,ya-tr-span{color:inherit;font-family:inherit;font-size:inherit;font-weight:inherit}
 h1,h2,h3,h4,h5,h6{font-weight:500;display:inline-block}h1{font-size:var(--h1)}h2{font-size:var(--h2)}h3{font-size:var(--h3)}h4{font-size:var(--h4)}h5{font-size:var(--h5)}
