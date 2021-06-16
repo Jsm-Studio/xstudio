@@ -1,8 +1,7 @@
-import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
+import { XCore, is, each } from "https://x-titan.github.io/utils/index.js"
+import { search, add, remove, styler } from "https://x-titan.github.io/web-utils/index.js"
 
-const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
-  { search, add, remove, styler } = DOM,
-  $$ = document;
+const Extend = XCore.Extend, $d = document;
 
 /**
  * @param {HTMLElement} x
@@ -10,7 +9,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  */
 export const setAttr = (x, y) => { x.setAttributeNode(y); return x }
 export const attr = (x, y) => {
-  const z = $$.createAttribute(x)
+  const z = $d.createAttribute(x)
   if (is.str(y) && y !== "") z.value = y
   return z
 }
@@ -25,8 +24,8 @@ export const appendChild = (x, y) => {
   return x
 }
 export const setParam = (x, y) => {
-  if (!is.obj(x) || x == null) return y; EXTEND(x, y); return x
+  if (!is.obj(x) || x == null) return y; Extend(x, y); return x
 }
-let Div = $$.createElement
-  ; (() => Div = $$.createElement.bind($$))();
+let Div = $d.createElement
+  ; (() => Div = $d.createElement.bind($d))();
 export { Div }

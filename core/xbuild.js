@@ -1,9 +1,6 @@
-import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
+import { XCore, is, each } from "https://x-titan.github.io/utils/index.js"
+import { search, add, remove, styler } from "https://x-titan.github.io/web-utils/index.js"
 import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
-
-const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
-  { search, add, remove, styler } = DOM,
-  $$ = document;
 
 //#region Types
 /**
@@ -44,7 +41,7 @@ const { is, each, getJSON, path, getBase64Image, EXTEND } = tools,
  */
 export function XBlank(config, child) {
   if (!is.obj(config)) config = {}
-  const x = appendChild(Div(config.tagName ? config.tagName : "div"), child)
+  const x = appendChild(search.newElement(config.tagName ? config.tagName : "div"), child)
   if (is.str(config.id)) x.id = config.id
   if (is.array(config.css)) add(x, ...config.css)
   if (is.obj(config.style)) styler(x, config.style)

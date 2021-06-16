@@ -1,8 +1,8 @@
-import { tools, DOM } from "https://titanium-studio.github.io/Tools/index.js"
-import { attr, setAttr } from "./xtool.js"
-const { is, each, getJSON, path, getBase64Image, Mono } = tools,
-  { search, add, remove, Div, styler } = DOM,
-  $$ = document;
+import { XCore, is, each } from "https://x-titan.github.io/utils/index.js"
+import { search, add, remove, styler } from "https://x-titan.github.io/web-utils/index.js"
+import { attr, setAttr, setParam, appendChild } from "./xtool.js"
+
+const Mono = XCore.Mono, $d = document
 
 /** @type {XStudio} */
 let xs
@@ -23,7 +23,7 @@ export default class XStudio {
 
   constructor(app) {
     if (Mono.force(this)) throw new Error("It's a class is Mono");
-    ((xs = this).#self = Div()).id = "xbody"; this.#app = initApp(app);
+    ((xs = this).#self = search.newElement("div")).id = "xbody"; this.#app = initApp(app);
     setAttr(xs.#self, attr("xbody")); this.usingImages = { length: 0 }
   }
   /**
@@ -71,11 +71,11 @@ export default class XStudio {
     if (xtarget instanceof HTMLElement) xs.#self.appendChild(xtarget)
     return xs
   }
-  set title(title) { if (is.str(title)) $$.title = title; return xs }
+  set title(title) { if (is.str(title)) $d.title = title; return xs }
   get isInited() { return this.#inited }
   get isReaded() { return this.#readed }
   static ERROR(...msg) {
-    $$.body.innerHTML
+    $d.body.innerHTML
       = "<h1 style='z-index:9999;position:fixed;left:50%;top:50%;"
       + "transform:translate(-50%,-50%);text-align:center;'>"
       + "😓Unfortunately this page doesn't work</h1>";
