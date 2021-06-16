@@ -161,6 +161,12 @@ mark {
 
 #xbody, [xbody] {
   overflow: auto;
+  transform-origin: bottom;
+  transition: rotateX 0.5s ease;
+}
+
+#xbody[hide], [xbody][hide] {
+  transform: rotateX(90deg);
 }
 
 [xsection] {

@@ -55,8 +55,8 @@ export default class XStudio {
   /** @param {boolean} [force] */
   hide(force = false) {
     console.log("hide")
-    if (force) add(xs.#self, ["hide", xs.#self.style.display = "none"])
-    else add(xs.#self, "rotateX90"); return xs
+    if (force) { setAttr(xs.#self, attr("hide", "force")); xs.#self.style.display = "none" }
+    else setAttr(xs.#self, attr("hide")); return xs
   }
   view() {
     remove(xs.#self, ["rotateX90", "hide", "none"])
