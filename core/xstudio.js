@@ -54,13 +54,11 @@ export default class XStudio {
   }
   /** @param {boolean} [force] */
   hide(force = false) {
-    console.log("hide")
     if (force) { setAttr(xs.#self, attr("hide", "force")); xs.#self.style.display = "none" }
     else setAttr(xs.#self, attr("hide")); return xs
   }
   view() {
-    console.log("view")
-    document.createElement("div").attributes.removeNamedItem("hide")
+    xs.#self.removeAttribute("hide")
     xs.#self.style.display = ""; return xs
   }
   ready() {
