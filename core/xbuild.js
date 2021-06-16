@@ -6,7 +6,7 @@ import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
 /**
  * @typedef {{
  * id: ?string,
- * css : ?string,
+ * css : ?string | string[],
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
  * notranslate: ?boolean
@@ -15,7 +15,7 @@ import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
 /**
  * @typedef {{
  * id: ?string,
- * css : ?string,
+ * css : ?string | string[],
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
  * notranslate: ?boolean,
@@ -25,7 +25,7 @@ import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
 /**
  * @typedef {{
  * id: ?string,
- * css : ?string,
+ * css : ?string | string[],
  * tagName: ?string,
  * style: ?CSSStyleDeclaration,
  * notranslate: ?boolean,
@@ -44,6 +44,7 @@ export function XBlank(config, ...child) {
   const x = appendChild(search.newElement(config.tagName ? config.tagName : "div"), child)
   if (is.str(config.id)) x.id = config.id
   if (is.array(config.css)) add(x, [...config.css])
+  if (is.str(config.css)) add(x, config.css)
   if (is.obj(config.style)) styler(x, config.style)
   if (config.notranslate) { x.translate = false; add(x, "notranslate") }
   return setAttr(x, attr("xbuild"))
