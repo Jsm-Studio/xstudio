@@ -66,9 +66,10 @@ export default class XStudio {
     setTimeout(() => xs.view(), 10); xs.#readed = true; return xs
   }
   /** @param {HTMLElement | HTMLElement[]} xtarget */
-  use(xtarget) {
-    if (is.array(xtarget)) return each(xtarget, xs.use)
-    if (xtarget instanceof HTMLElement) xs.#self.appendChild(xtarget)
+  use(...xtarget) {
+    each(xtarget, x=>{
+      if (xtarget instanceof HTMLElement) xs.#self.appendChild(xtarget)
+    })
     return xs
   }
   set title(title) { if (is.str(title)) $d.title = title; return xs }

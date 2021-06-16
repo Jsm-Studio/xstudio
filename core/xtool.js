@@ -18,14 +18,10 @@ export const attr = (x, y) => {
  * @param {HTMLElement} y
  */
 export const appendChild = (x, y) => {
-  if (is.str(y)) y = search(y)
-  else if (is.array(y)) { each(y, z => appendChild(x, z)); return x }
-  if (y instanceof HTMLElement) x.appendChild(y)
+  if (is.str(y)) y = [search(y)]
+  each(y, z => { if (y instanceof HTMLElement) x.appendChild(z) })
   return x
 }
-export const setParam = (x, y) => {
-  if (!is.obj(x) || x == null) return y; Extend(x, y); return x
-}
-let Div = $d.createElement
-  ; (() => Div = $d.createElement.bind($d))();
+export const setParam = (x, y) => { if (!is.obj(x)) return y; return Extend(x, y) }
+let Div = search.newElement
 export { Div }

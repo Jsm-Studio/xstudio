@@ -37,9 +37,9 @@ import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
 
 /**
  * @param {config_} [config]
- * @param {HTMLElement | HTMLElement[]} [child]
+ * @param {HTMLElement[]} [child]
  */
-export function XBlank(config, child) {
+export function XBlank(config, ...child) {
   if (!is.obj(config)) config = {}
   const x = appendChild(search.newElement(config.tagName ? config.tagName : "div"), child)
   if (is.str(config.id)) x.id = config.id
@@ -50,15 +50,15 @@ export function XBlank(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement | HTMLElement[]} [child]
+ * @param {HTMLElement[]} [child]
  */
-export function XSection(config, child) {
+export function XSection(config, ...child) {
   const x = XBlank(setParam(config, { tagName: "section" }), child)
   return setAttr(x, attr("xsection"))
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement | HTMLElement[]} [child]
+ * @param {HTMLElement[]} [child]
  */
 export function XContent(config, child) {
   const x = XBlank(config, child)
@@ -66,7 +66,7 @@ export function XContent(config, child) {
 }
 /**
  * @param {config_List} [config]
- * @param {HTMLElement | HTMLElement[]} [child]
+ * @param {HTMLElement[]} [child]
  */
 export function XList(config, child) {
   const x = XBlank(config, child)
@@ -78,7 +78,7 @@ export function XList(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement | HTMLElement[]} [child]
+ * @param {HTMLElement[]} [child]
  */
 export function XHero(config, child) {
   const x = XBlank(config, child)
@@ -86,7 +86,7 @@ export function XHero(config, child) {
 }
 /**
  * @param {config_} [config]
- * @param {HTMLElement | HTMLElement[]} [child]
+ * @param {HTMLElement[]} [child]
  */
 export function XFooter(config, child) {
   const x = XBlank(setParam(config, { tagName: "footer" }), child)
