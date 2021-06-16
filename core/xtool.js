@@ -21,6 +21,10 @@ export const appendChild = (x, y) => {
   each(y, z => { if (z instanceof HTMLElement) x.appendChild(z) })
   return x
 }
+export const toConfigurate = (args) => {
+  if (args[0] instanceof HTMLElement) return [null, ...args]
+  else if (!is.obj(args[0])) return [{}, ...args]
+}
 export const setParam = (x, y) => { if (!is.obj(x)) return y; return Extend(x, y) }
 let Div = search.newElement
 export { Div }

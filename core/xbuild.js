@@ -1,6 +1,6 @@
 import { XCore, is, each } from "https://x-titan.github.io/utils/index.js"
 import { search, add, remove, styler } from "https://x-titan.github.io/web-utils/index.js"
-import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
+import { Div, attr, setAttr, appendChild, setParam, toConfigurate } from "./xtool.js"
 
 //#region Types
 /**
@@ -40,6 +40,7 @@ import { Div, attr, setAttr, appendChild, setParam } from "./xtool.js"
  * @param {HTMLElement[]} [child]
  */
 export function XBlank(config, ...child) {
+  let [config,...child] = to([config,...child])
   if (!is.obj(config)) config = {}
   const x = appendChild(search.newElement(config.tagName ? config.tagName : "div"), child)
   if (is.str(config.id)) x.id = config.id
