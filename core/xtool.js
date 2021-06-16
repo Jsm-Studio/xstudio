@@ -22,7 +22,6 @@ export const appendChild = (x, y) => {
   return x
 }
 export const toConfigurate = args => {
-  console.log(args)
   if (args[0] instanceof HTMLElement) return [{}, ...args]
   else if (!is.obj(args[0])) return [{}, ...args]
   return args
