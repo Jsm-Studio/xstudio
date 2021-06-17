@@ -43,8 +43,8 @@ export function XBlank(config, ...childs) {
   if (Array.isArray(cfg.css)) x.classList.add([...cfg.css])
   if ("string" === typeof cfg.css) x.classList.add(cfg.css)
   if ("object" === typeof cfg.style && cfg.style !== null)
-    for (const k in cf.style) if (Object.hasOwnProperty.call(cf.style, k))
-      x.style[k] = cf.style[k];
+    for (const k in cfg.style) if (Object.hasOwnProperty.call(cfg.style, k))
+      x.style[k] = cfg.style[k];
   if (cfg.notranslate) { x.translate = false; x.classList.add("notranslate") }
   return setAttr(x, attr("xbuild"))
 }
