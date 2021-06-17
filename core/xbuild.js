@@ -1,7 +1,4 @@
-import { XCore, is, each } from "https://x-titan.github.io/utils/index.js"
-import { search, add, remove, styler } from "https://x-titan.github.io/web-utils/index.js"
 import { Div, attr, setAttr, appendChild, setParam, toConfigurate } from "./xtool.js"
-
 //#region Types
 /**
  * @typedef {{
@@ -41,12 +38,14 @@ import { Div, attr, setAttr, appendChild, setParam, toConfigurate } from "./xtoo
  */
 export function XBlank(config, ...childs) {
   let [cfg, ...child] = toConfigurate([config, ...childs])
-  const x = appendChild(search.newElement(cfg.tagName ? cfg.tagName : "div"), child)
-  if (is.str(cfg.id)) x.id = cfg.id
-  if (is.array(cfg.css)) add(x, [...cfg.css])
-  if (is.str(cfg.css)) add(x, cfg.css)
-  if (is.obj(cfg.style)) styler(x, cfg.style)
-  if (cfg.notranslate) { x.translate = false; add(x, "notranslate") }
+  const x = appendChild(Div(cfg.tagName ? cfg.tagName : "div"), child)
+  if ("string" === typeof cfg.id) x.id = cfg.id
+  if (Array.isArray(cfg.css)) x.classList.add([...cfg.css])
+  if ("string" === typeof cfg.css) x.classList.add(cfg.css)
+  if ("object" === typeof cfg.style && cfg.style !== null)
+    for (const k in cf.style) if (Object.hasOwnProperty.call(cf.style, k))
+      x.style[k] = cf.style[k];
+  if (cfg.notranslate) { x.translate = false; x.classList.add("notranslate") }
   return setAttr(x, attr("xbuild"))
 }
 /**
@@ -72,8 +71,8 @@ export function XContent(config, ...childs) {
 export function XList(config, ...childs) {
   const x = XBlank(config, ...childs)
   let z = attr("xlist")
-  if (is.obj(config)) {
-    if (is.str(config.listType)) z.value = config.listType
+  if ("object" === typeof config && config !== null) {
+    if ("string" === typeof config.listType) z.value = config.listType
   }
   return setAttr(x, z)
 }
@@ -100,11 +99,11 @@ export function XFooter(config, ...childs) {
  */
 export function XText(config, text) {
   const x = XBlank(config)
-  if (is.obj(config)) {
-    if (is.str(config.href)) x.href = config.href
-    if (is.str(config.rel)) x.rel = config.rel
+  if ("object" === typeof config && config !== null) {
+    if ("string" === typeof config.href) x.href = config.href
+    if ("string" === typeof config.rel) x.rel = config.rel
   }
-  if (is.str(text)) x.innerHTML = text
-  if (is.str(config)) x.innerHTML = config
+  if ("string" === typeof text) x.innerHTML = text
+  if ("string" === typeof config) x.innerHTML = config
   return setAttr(x, attr("xtext"))
 }

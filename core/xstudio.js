@@ -1,20 +1,17 @@
-import { XCore, is, each } from "https://x-titan.github.io/utils/index.js"
-import { search, add, remove, styler } from "https://x-titan.github.io/web-utils/index.js"
-import { attr, setAttr, setParam, appendChild } from "./xtool.js"
+import { Div, attr, setAttr, setParam, appendChild } from "./xtool.js"
 
-const Mono = XCore.Mono, $d = document
+const  $d = document
 
 /** @type {XStudio} */
 let xs
 const initApp = x => {
-  if (is.str(app)) app = search(app)
-  if (!(app instanceof HTMLElement))
+  if ("string" === typeof x) x = document.querySelector(x)
+  if (!(x instanceof HTMLElement))
     throw new TypeError("Require HTMLElement")
-  return app
+  return x
 }
 
 export default class XStudio {
-
   #self
   #app
 
@@ -22,8 +19,9 @@ export default class XStudio {
   #readed = false;
 
   constructor(app) {
-    if (Mono.force(this)) throw new Error("It's a class is Mono");
-    ((xs = this).#self = search.newElement("div")).id = "xbody"; this.#app = initApp(app);
+    if (xs instanceof XStudio)
+      throw new Error("It's a class is Mono");
+    ((xs = this).#self = Div("div")).id = "xbody"; this.#app = initApp(app);
     setAttr(xs.#self, attr("xbody")); this.usingImages = { length: 0 }
   }
   /**
@@ -34,10 +32,10 @@ export default class XStudio {
    */
   init(config) {
     return new Promise((fn, er) => {
-      if (xs.#inited || !is.array(config?.data?.use))
+      if (xs.#inited || !Array.isArray(config?.data?.use))
         return fn({ imgList: [] });
       let use = config.data.use, imgList = xs.usingImages; xs.inited = true;
-      each(use, z => {
+      use.forEach(z => {
         let img, load;
         if (z.type == "img") {
           (img = new Image()).src = z.value
@@ -67,11 +65,14 @@ export default class XStudio {
   }
   /** @param {HTMLElement | HTMLElement[]} xtarget */
   use(xtarget) {
-    if (is.array(xtarget)) return each(xtarget, xs.use)
+    if (Array.isArray(xtarget)) {
+      xtarget.forEach(xs.use)
+      return xs
+    }
     if (xtarget instanceof HTMLElement) xs.#self.appendChild(xtarget)
     return xs
   }
-  set title(title) { if (is.str(title)) $d.title = title; return xs }
+  set title(title) { if ("string" === typeof title) $d.title = title; return xs }
   get isInited() { return this.#inited }
   get isReaded() { return this.#readed }
   static ERROR(...msg) {
