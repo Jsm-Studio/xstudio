@@ -1,6 +1,6 @@
 import { Div, attr, setAttr, setParam, appendChild } from "./xtool.js"
 
-const  $d = document
+const $d = document
 
 /** @type {XStudio} */
 let xs
@@ -38,8 +38,7 @@ export default class XStudio {
       use.forEach(z => {
         let img, load;
         if (z.type == "img") {
-          (img = new Image()).src = z.value
-          img.onerror = er;
+          (img = new Image()).src = z.value; img.onerror = er;
           img.addEventListener("load", load = () => {
             if (img.complete) {
               imgList[z.name] = img
