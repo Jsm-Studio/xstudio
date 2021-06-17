@@ -1,7 +1,5 @@
 import { Div, attr, setAttr, setParam, appendChild } from "./xtool.js"
 
-const $d = document
-
 /** @type {XStudio} */
 let xs
 const initApp = x => {
@@ -71,11 +69,11 @@ export default class XStudio {
     if (xtarget instanceof HTMLElement) xs.#self.appendChild(xtarget)
     return xs
   }
-  set title(title) { if ("string" === typeof title) $d.title = title; return xs }
+  set title(title) { if ("string" === typeof title) document.title = title; return xs }
   get isInited() { return this.#inited }
   get isReaded() { return this.#readed }
   static ERROR(...msg) {
-    $d.body.innerHTML
+    document.body.innerHTML
       = "<h1 style='z-index:9999;position:fixed;left:50%;top:50%;"
       + "transform:translate(-50%,-50%);text-align:center;'>"
       + "😓Unfortunately this page doesn't work</h1>";
