@@ -53,7 +53,7 @@ export function XBlank(config, ...childs) {
  * @param {HTMLElement[]} [childs]
  */
 export function XSection(config, ...childs) {
-  const x = XBlank(setParam(config, { tagName: "section" }), ...childs)
+  const x = XBlank(setParam(config, { tagName: "section" }), config, ...childs)
   return setAttr(x, attr("xsection"))
 }
 /**
@@ -89,7 +89,7 @@ export function XHero(config, ...childs) {
  * @param {HTMLElement[]} [childs]
  */
 export function XFooter(config, ...childs) {
-  const x = XBlank(setParam(config, { tagName: "footer" }), ...childs)
+  const x = XBlank(setParam(config, { tagName: "footer" }), config, ...childs)
   return setAttr(x, attr("xfooter"))
 }
 

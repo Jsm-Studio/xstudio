@@ -13,9 +13,9 @@ export const attr = (x, y) => {
  * @param {HTMLElement} y
  */
 export const appendChild = (x, y) => {
-  for (const z of y) {
+  for (const z of y)
     if (z instanceof HTMLElement) x.appendChild(z)
-  }
+
   return x
 }
 export const toConfigurate = args => {
