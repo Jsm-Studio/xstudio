@@ -95,7 +95,7 @@ export function XFooter(config, ...childs) {
 
 /**
  * @param {config_Text} [config]
- * @param {string} [child]
+ * @param {string} [text]
  */
 export function XText(config, text) {
   const x = XBlank(config)
@@ -104,6 +104,16 @@ export function XText(config, text) {
     if ("string" === typeof config.rel) x.rel = config.rel
   }
   if ("string" === typeof text) x.innerHTML = text
-  if ("string" === typeof config) x.innerHTML = config
+  else if ("string" === typeof config) x.innerHTML = config
   return setAttr(x, attr("xtext"))
+}
+/**
+ * @param {config_} [config]
+ * @param {string} [src]
+ */
+export function XImage(config, src) {
+  const x = XBlank(setParam(config, { tagName: "img" }))
+  if ("string" === typeof src) x.src = src
+  else if ("string" === typeof config) x.src = config
+  return setAttr(x, attr("ximage"))
 }
